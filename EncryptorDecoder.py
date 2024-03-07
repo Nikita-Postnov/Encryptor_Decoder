@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import filedialog
 import os
 
-# Функция для шифрования файла с помощью XOR
 def xor_encrypt(file_path, key):
     with open(file_path, 'rb') as file:
         data = file.read()
@@ -10,11 +9,9 @@ def xor_encrypt(file_path, key):
     with open(file_path, 'wb') as file:
         file.write(encrypted_data)
 
-# Функция для дешифрования файла с помощью XOR
 def xor_decrypt(file_path, key):
     xor_encrypt(file_path, key)  # Дешифрование - это тоже самое, что и шифрование с тем же ключом
 
-# Функция для выбора файла
 def select_file():
     file_path = filedialog.askopenfilename()
     entry_path.delete(0, tk.END)
@@ -32,11 +29,9 @@ def process_file():
         xor_decrypt(file_path, key)
         label_status.config(text="Файл успешно дешифрован!", fg="green")
 
-# Создаем окно
 root = tk.Tk()
 root.title("Шифратор и дешифратор файлов")
 
-# Добавляем элементы интерфейса
 label_path = tk.Label(root, text="Выберите файл:")
 label_path.pack()
 
